@@ -1,3 +1,5 @@
+import CreateTask from "./taskManager";
+
 export const projectsList = [];
 
 export function createNewProject(title) {
@@ -24,4 +26,11 @@ export function addProjectToList(project , list = projectsList) {
 export function createAndSaveProject(title) {
     const newProject = createNewProject(title);
     addProjectToList(newProject);
+}
+
+// Making sure that there is at least 1 project 
+
+if (projectsList.length === 0) {
+    createAndSaveProject('My Project');
+    projectsList[0].addTask(CreateTask('My First Task', 'Put your description here', 'Put the date here', 1))
 }
