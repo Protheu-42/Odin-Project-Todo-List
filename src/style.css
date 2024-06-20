@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --primary-color: #F6F5F2;
+    --secondary-color: #F0EBE3;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+ul, li {
+    margin: 0;
+}
+
+#navbar {
+    background-color: var(--primary-color);
+    padding: 15px;
+}
+
+#navbar li,
+#navbar ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+#navbar li::before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    height: 1rem;
+    width: 1rem;
+    background-image: url('./imgs/pound.svg');
+}
+
+
+.project-title {
+    margin-top: 35px;
+    margin-bottom: 5px;
+}
+
+#new-project-btn,
+.new-task-btn {
+    border: none;
+    background-color: var(--primary-color);
+}
+
+.new-task-btn {
+    display: none;
+}
+
+.project-title:hover, 
+#navbar li:hover,
+#new-project-btn:hover  {
+    background-color: var(--secondary-color);
+    cursor: grab;
+} 
+
+.project-title:hover .new-task-btn {
+    display: inline-block;
+}
+
+.new-task-btn:hover {
+    background-color: var(--secondary-color);
+    display: inline-block;
+    cursor: grab;
+}
+
+.project-title {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+
+
+#main-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 0.5fr 3fr ;
+    height: 100%;
+}
+
+#project-page {
+    padding: 15px 35px;
+}
+
+#project-page li {
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+#project-page li:hover {
+    background-color: var(--primary-color);
+    cursor: grab;
+}
+
+#project-page .new-task-btn {
+    font-size: 1rem;
+    display: inline-block;
+    background-color: white;
+    opacity: 50%;
+}
+
+#project-page .new-task-btn span {
+    color: red;
+    margin-right: 15px;
+}

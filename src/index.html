@@ -6,7 +6,49 @@
     <title>Just DO-it</title>
 </head>
 <body>
-    <div id="content">
+    <div id="main-container">
+        <nav id="navbar">
+            <div>User</div>
+            <div class="project-title">
+                <label for="new-project-btn">Create New Project</label>
+                <button type="button" id="new-project-btn">+</button>
+            </div>
+            <div>
+                <div class="project-title">My Projects <button type="button" class="new-task-btn">+</button></div>
+                <ul>
+                    <li>My First Task</li>
+                    <li>One, Two, Three</li>
+                </ul>
+            </div>
+            <div>
+                <div class="project-title">I tired <button type="button" class="new-task-btn">+</button></div>
+                <ul>
+                    <li>Sleep</li>
+                    <li>Give up list, and Drink Coffee</li>
+                </ul>
+            </div>
+        </nav>
+        <div id="content">
+            <div id="project-page">
+                <h1>My Projects</h1>
+                <ul>
+                    <li>
+                        My First Task
+                        <span>Priority</span> 
+                        <div>16/07/2024</div>
+                        
+                    </li>
+                    <li>
+                        One, Two, Three 
+                        <span>Priority</span> 
+                        <div>16/07/2024</div>
+                    </li>
+                    <li>
+                        <button type="button" class="new-task-btn"><span>+</span>Add Task</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
