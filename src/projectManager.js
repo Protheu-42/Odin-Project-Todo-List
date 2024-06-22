@@ -28,7 +28,7 @@ export function createAndSaveProject(title) {
     addProjectToList(newProject);
 }
 
-// Making sure that there is at least 1 project 
+// Making sure that there is at least 1 project
 
 if (projectsList.length === 0) {
     createAndSaveProject('My Project');

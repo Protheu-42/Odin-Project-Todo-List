@@ -39,7 +39,8 @@ ul, li {
 }
 
 
-.project-title {
+.project-title,
+#navbar >:nth-child(2) {
     margin-top: 35px;
     margin-bottom: 5px;
 }
@@ -55,6 +56,7 @@ ul, li {
 }
 
 .project-title:hover, 
+#navbar >:nth-child(2):hover, 
 #navbar li:hover,
 #new-project-btn:hover  {
     background-color: var(--secondary-color);
@@ -71,7 +73,8 @@ ul, li {
     cursor: grab;
 }
 
-.project-title {
+.project-title,
+#navbar >:nth-child(2) {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
@@ -84,6 +87,8 @@ ul, li {
     grid-template-columns: 0.5fr 3fr ;
     height: 100%;
 }
+
+/* Project Page */
 
 #project-page {
     padding: 15px 35px;
