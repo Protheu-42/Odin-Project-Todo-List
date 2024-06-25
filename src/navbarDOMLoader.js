@@ -1,13 +1,15 @@
 export default function populateNavbar(projectManager) {
+    navbarClear();
     const navbar = document.querySelector('#navbar');
     const projectsList = projectManager.projectsList;
     renderProjects(navbar, projectsList);
-    renderTasks(projectsList)
+    renderTasks(projectsList);
 }
 
 function renderProjects(navbar, projectsList) {
     for (let i = 0; i < projectsList.length; i++) {
         const outerDiv = document.createElement('div');
+        outerDiv.classList.add('project-card');
         const projectTitleDiv = document.createElement('div');
         projectTitleDiv.classList.add('project-title');
         projectTitleDiv.id = i;
@@ -38,5 +40,14 @@ function renderTasks(projectsList) {
         }
         projectNodeList[i].parentNode.appendChild(taskList);
         currentProject = undefined;
+    }
+}
+
+export function navbarClear() {
+    const navbar = document.querySelector('#navbar');
+    for (let i = 0; i < navbar.childNodes.length; i++) {
+        if (navbar.childNodes[i].className === 'project-card') {
+            navbar.removeChild(navbar.childNodes[i]);
+        }
     }
 }

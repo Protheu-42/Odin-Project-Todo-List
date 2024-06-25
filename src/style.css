@@ -115,3 +115,54 @@ ul, li {
     color: red;
     margin-right: 15px;
 }
+
+/* New Task Page */
+
+#content form {
+    padding: 35px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: min-content min-content;
+}
+
+#content form h1 {
+    grid-column: span 2;
+}
+
+#content form label span {
+    color: red;
+    cursor: grab;
+}
+
+#content form label span::after {
+    position: relative;
+    display: none;
+    content: "(1 being most important and 3 minor importancy)";
+    top: -25px;
+    right: -80px;
+    background-color: grey;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    opacity: 70%;
+}
+
+#content form label span:hover::after {
+    display: inline-block;
+}
+
+#content form input[type='number'] {
+    width: 6ch;
+}
+
+#content form button {
+    background-color: var(--primary-color);
+    border: 1px solid black;
+    justify-self: start;
+    padding: 3px 20px;
+}
+
+#content form button:hover,
+#content form input:hover {
+    background-color: var(--secondary-color);
+}

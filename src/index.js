@@ -1,7 +1,4 @@
 import './style.css';
-import CreateTask from "./taskManager";
-import * as projectManager from "./projectManager";
-import navbarDomLoader from "./navbarDOMLoader";
+import DOMHandler from './DOMHandler';
 
-
-navbarDomLoader(projectManager)
+DOMHandler();
