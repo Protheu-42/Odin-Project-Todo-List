@@ -2,8 +2,9 @@ import CreateTask from "./taskManager";
 import * as projectManager from "./projectManager";
 import navbarDomLoader from "./navbarDOMLoader";
 import newTaskPageDomLoader from "./newTaskPageDOMLoader";
-import { taskPageLoad } from "./taskDOMLoader";
+import { taskPageLoad } from "./taskPageLoad";
 import { format } from "date-fns";
+import { setTaskProprieties, remove } from "./helper";
 
 export default function DOMhandler() {
     navbarDomLoader(projectManager);
@@ -15,7 +16,6 @@ export default function DOMhandler() {
         for (let i = 0; i < newTaskBtnsNodelist.length; i++){
             let projectId = newTaskBtnsNodelist[i].parentNode.id
             newTaskBtnsNodelist[i].addEventListener('click', () => {
-                console.log(projectId);
                 newTaskPageDomLoader(projectManager.projectsList[projectId], CreateTask); // Later implement a way to direct to the created page
             })            
         }
@@ -28,10 +28,9 @@ export default function DOMhandler() {
                 const currentProject = projectManager.projectsList[projectId]
                 const currentTask = projectManager.projectsList[projectId].getList()[taskId];
                 const formatedDate = format(currentTask.getDueDate(), 'yyyy-MM-dd');
-                taskPageLoad(currentTask.getTitle(), currentTask.getDescription(), currentTask.getPriority(), formatedDate, currentProject, taskId, currentTask);
+                taskPageLoad(currentTask.getTitle(), currentTask.getDescription(), currentTask.getPriority(), formatedDate, remove(currentProject, taskId), setTaskProprieties(currentTask));
             })
         }
-
     })()
 };
 

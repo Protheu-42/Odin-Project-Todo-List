@@ -1,11 +1,10 @@
-import { attributeSetter, clearContentPage } from "./helper";
-import DOMhandler from "./DOMHandler";
+import { attributeSetter, clearContentPage, reloadDOM } from "./helper";
 
-export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDateInput, currentProject, taskId, currentTask) {
+export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDateInput,  remove ,setTaskProprieties) {
     const contentDiv = document.querySelector('#content');
 
      // Making sure that is a clear Start
-    clearContentPage(contentDiv);
+    clearContentPage();
 
     const formEditDisplay = document.createElement('form');
     formEditDisplay.id = 'task-display-edit';
@@ -30,12 +29,12 @@ export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDat
     attributeSetter(saveBtn, {'type' :'button'});
     saveBtn.textContent = 'Save';
     saveBtn.addEventListener('click', () => {
-        currentTask.setTitle(title.value);
-        currentTask.setDescription(description.value);
-        currentTask.setPriority(priority.value);
-        currentTask.setDueDate(dueDate.value);
-        DOMhandler();
-        clearContentPage(contentDiv)
+        setTaskProprieties.setTaskTitle(title.value);
+        setTaskProprieties.setTaskDescription(description.value);
+        setTaskProprieties.setTaskPriority(priority.value);
+        setTaskProprieties.setTaskDueDate(dueDate.value);
+        reloadDOM();
+        clearContentPage()
     })
 
 
@@ -43,9 +42,9 @@ export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDat
     attributeSetter(deleteBtn, {'type': 'button', 'class': 'delete-btn'});
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
-        currentProject.deleteTask(taskId)
-        DOMhandler();
-        clearContentPage(contentDiv);
+        remove.deleteTask()
+        reloadDOM();
+        clearContentPage();
     })
     
     contentDiv.appendChild(formEditDisplay);

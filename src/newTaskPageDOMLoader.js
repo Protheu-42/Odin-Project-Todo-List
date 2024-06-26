@@ -1,4 +1,4 @@
-import DOMhandler from "./DOMHandler";
+import { reloadDOM } from "./helper";
 import { attributeSetter, clearContentPage } from "./helper";
 
 export default function newTaskPageDomLoader(project, CreateTask){
@@ -39,13 +39,11 @@ export default function newTaskPageDomLoader(project, CreateTask){
     saveBtn.textContent = 'Save';
     attributeSetter(saveBtn, {'type': 'button'});
     saveBtn.addEventListener('click', () => {
-        console.log('working')
-        const newTask = CreateTask(taskTitleInput.value, descriptionInput.value, priorityInput.value, dueDate.value);
+        const newTask = CreateTask(taskTitleInput.value, descriptionInput.value, dueDate.value, priorityInput.value);
         currentProject.addTask(newTask);
         clearAllInputs();
         for (let i = 0; i < currentProject.getList().length; i++) {
-            console.log(currentProject.getList()[i].getTitle());
-            return DOMhandler();  
+            return reloadDOM();  
         }
         // direct to the page of the task
     })
