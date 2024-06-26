@@ -1,0 +1,61 @@
+import { attributeSetter, clearContentPage } from "./helper";
+import DOMhandler from "./DOMHandler";
+
+export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDateInput, currentProject, taskId, currentTask) {
+    const contentDiv = document.querySelector('#content');
+
+     // Making sure that is a clear Start
+    clearContentPage(contentDiv);
+
+    const formEditDisplay = document.createElement('form');
+    formEditDisplay.id = 'task-display-edit';
+    
+    const title = document.createElement('input');
+    attributeSetter(title, {'type': 'text', 'name': 'title', 'id': 'title', 'value': titleInput});
+    
+    const description = document.createElement('input');
+    attributeSetter(description, {'type': 'text', 'name': 'description', 'id': 'description', 'value': descriptionInput});
+    
+    const priorityDiv = document.createElement('div');
+    const priority = document.createElement('input');
+    attributeSetter(priority, {'type': 'number', 'name': 'priority', 'id': 'priority', 'min': '1', 'max': '3', 'value': priorityInput});
+    const priorityDescription = document.createElement('span');
+    priorityDescription.textContent = '*1 being most important and 3 minor importancy';
+    
+    const dueDate = document.createElement('input');
+    attributeSetter(dueDate, {'type': 'date', 'name': 'dueDate', 'id': 'dueDate', 'value': dueDateInput});
+    
+    const btnsDiv = document.createElement('div');
+    const saveBtn = document.createElement('button');
+    attributeSetter(saveBtn, {'type' :'button'});
+    saveBtn.textContent = 'Save';
+    saveBtn.addEventListener('click', () => {
+        currentTask.setTitle(title.value);
+        currentTask.setDescription(description.value);
+        currentTask.setPriority(priority.value);
+        currentTask.setDueDate(dueDate.value);
+        DOMhandler();
+        clearContentPage(contentDiv)
+    })
+
+
+    const deleteBtn = document.createElement('button');
+    attributeSetter(deleteBtn, {'type': 'button', 'class': 'delete-btn'});
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', () => {
+        currentProject.deleteTask(taskId)
+        DOMhandler();
+        clearContentPage(contentDiv);
+    })
+    
+    contentDiv.appendChild(formEditDisplay);
+    formEditDisplay.appendChild(title);
+    formEditDisplay.appendChild(description);
+    formEditDisplay.appendChild(priorityDiv);
+    priorityDiv.appendChild(priority);
+    priorityDiv.appendChild(priorityDescription);
+    formEditDisplay.appendChild(dueDate);
+    formEditDisplay.appendChild(btnsDiv);
+    btnsDiv.appendChild(saveBtn);
+    btnsDiv.appendChild(deleteBtn);
+}

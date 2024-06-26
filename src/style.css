@@ -166,3 +166,45 @@ ul, li {
 #content form input:hover {
     background-color: var(--secondary-color);
 }
+
+/* TASK DISPLAY AND EDIT PAGE */
+#content #task-display-edit {
+    display: grid;
+    padding: 55px;
+    grid-template-columns: 1fr;
+}
+
+#content #task-display-edit input {
+    border: none;
+    padding: 25px;
+}
+
+#content #task-display-edit #title {
+    font-size: 2rem;
+}
+
+#content #task-display-edit #dueDate {
+    width: min-content;
+}
+
+#content #task-display-edit span {
+    color: red;
+    font-size: 0.7rem;
+    cursor:help;
+}
+
+#content #task-display-edit span:hover {
+    color: red;
+    font-size: 1rem;
+    cursor:help;
+}
+
+#content #task-display-edit button {
+    padding: 5px 25px;
+    margin-left: 20px;
+}
+
+#content .delete-btn {
+    background-color: red;
+    color: white;
+}

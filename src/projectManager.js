@@ -32,5 +32,5 @@ export function createAndSaveProject(title) {
 
 if (projectsList.length === 0) {
     createAndSaveProject('My Project');
-    projectsList[0].addTask(CreateTask('My First Task', 'Put your description here', 'Put the date here', 1))
+    projectsList[0].addTask(CreateTask('My First Task', 'Put your description here', new Date(2024, 6, 26), 1))
 }

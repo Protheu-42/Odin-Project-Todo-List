@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 export default function CreateTask(title, description, dueDate, priority) {
     const getTitle = () => title;    
     const setTitle = (newTitle) => title = newTitle;
@@ -10,7 +8,7 @@ export default function CreateTask(title, description, dueDate, priority) {
     const getPriority = () => priority;
     const setPriority = (newPriority) => priority = newPriority; 
 
-    const getDueDate = () => format(dueDate, "MM/dd/yyyy");
+    const getDueDate = () => dueDate;
     const setDueDate = (newDueDate) => dueDate = newDueDate;
 
     return {

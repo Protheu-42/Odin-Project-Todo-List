@@ -1,11 +1,12 @@
 import DOMhandler from "./DOMHandler";
+import { attributeSetter, clearContentPage } from "./helper";
 
 export default function newTaskPageDomLoader(project, CreateTask){
     const currentProject = project;
     const contentDiv = document.querySelector("#content");
 
     // Making sure that is a clear Start
-    clearAllPage();
+    clearContentPage(contentDiv);
 
     const formContainer = document.createElement('form');
     const formTitle = document.createElement('h1');
@@ -66,18 +67,5 @@ export default function newTaskPageDomLoader(project, CreateTask){
         descriptionInput.value = '';
         priorityInput.value = '';
         dueDate.value = '';
-    }
-    
-    function clearAllPage() {
-        while (contentDiv.firstChild) {
-            contentDiv.removeChild(contentDiv.firstChild);
-        }
-    }
-
-}
-
-function attributeSetter(element, attributes) {
-    for(let key in attributes){
-        element.setAttribute(key, attributes[key])
     }
 }
