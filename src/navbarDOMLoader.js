@@ -20,7 +20,7 @@ function renderProjects(navbar, projectsList) {
         newTaskBtn.textContent = '+';
 
         outerDiv.appendChild(projectTitleDiv);
-        projectTitleDiv.appendChild(newTaskBtn);
+        outerDiv.appendChild(newTaskBtn);
 
         navbar.appendChild(outerDiv);
     }
@@ -48,6 +48,7 @@ export function navbarClear() {
     for (let i = 0; i < navbar.childNodes.length; i++) {
         if (navbar.childNodes[i].className === 'project-card') {
             navbar.removeChild(navbar.childNodes[i]);
+            i--;
         }
     }
 }

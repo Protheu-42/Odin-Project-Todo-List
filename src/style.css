@@ -29,7 +29,8 @@ ul, li {
     margin-bottom: 5px;
 }
 
-#navbar li::before {
+#navbar li::before,
+#content #project-display-page li::before {
     content: '';
     display: inline-block;
     margin-right: 5px;
@@ -38,6 +39,12 @@ ul, li {
     background-image: url('./imgs/pound.svg');
 }
 
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: min-content;
+    align-items: baseline;
+}
 
 .project-title,
 #navbar >:nth-child(2) {
@@ -49,10 +56,6 @@ ul, li {
 .new-task-btn {
     border: none;
     background-color: var(--primary-color);
-}
-
-.new-task-btn {
-    display: none;
 }
 
 .project-title:hover, 
@@ -67,10 +70,14 @@ ul, li {
     display: inline-block;
 }
 
-.new-task-btn:hover {
-    background-color: var(--secondary-color);
+.new-task-btn {
+    background-color: var(--primary-color);
     display: inline-block;
     cursor: grab;
+}
+
+.new-task-btn:hover {
+    background-color: var(--secondary-color);
 }
 
 .project-title,
@@ -116,7 +123,7 @@ ul, li {
     margin-right: 15px;
 }
 
-/* New Task Page */
+/* NEW TASK PAGE */
 
 #content form {
     padding: 35px;
@@ -207,4 +214,31 @@ ul, li {
 #content .delete-btn {
     background-color: red;
     color: white;
+}
+
+/* PROJECT DISPLAY PAGE */
+
+#content #project-display-page {
+    display: inline-block;
+}
+
+#content #project-display-page input {
+    border: none;
+    font-size: 2rem;
+}
+
+#content #project-display-page ul {
+    margin-top: 15px;
+    list-style-type: none;
+}
+
+#content #project-display-page li {
+    cursor: grab;
+}
+
+#content #project-display-page #delete-project {
+    background-color: red;
+    color: white;
+    font-weight: 900;
+    border: none;
 }

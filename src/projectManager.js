@@ -28,6 +28,11 @@ export function createAndSaveProject(title) {
     addProjectToList(newProject);
 }
 
+export function deleteProject(projectIndex) {
+    projectsList.splice(projectIndex, 1);
+}
+
+
 // Making sure that there is at least 1 project
 
 if (projectsList.length === 0) {

@@ -1,5 +1,8 @@
 import DOMhandler from "./DOMHandler";
 import CreateTask from "./taskManager";
+import { taskPageLoad } from "./taskPageLoad";
+import { deleteProject } from "./projectManager";
+import { format } from "date-fns";
 
 export function attributeSetter(element, attributes) {
     for(let key in attributes){
@@ -50,5 +53,25 @@ export function remove (currentProject, taskId) {
 
     return {
         deleteTask
+    }
+}
+
+export function loadTaskHandler(title, description, priority, dueDateInput, remove, setTaskProprieties) {      
+    taskPageLoad(title, description, priority, dueDateInput, remove, setTaskProprieties);
+}
+
+// Project related
+
+export function projectHelper () {
+    const changeProjectTitle = (project, newname) => {
+        project.setTitle(newname)
+    }
+
+    const removeProject = (projectId) => {
+        deleteProject(projectId)
+    }
+
+    return {
+        changeProjectTitle, removeProject
     }
 }

@@ -1,9 +1,11 @@
 import { reloadDOM } from "./helper";
 import { attributeSetter, clearContentPage } from "./helper";
+import { format } from "date-fns";
 
 export default function newTaskPageDomLoader(project, CreateTask){
     const currentProject = project;
     const contentDiv = document.querySelector("#content");
+    const today =  format(new Date(), 'yyyy-MM-dd')
 
     // Making sure that is a clear Start
     clearContentPage(contentDiv);
@@ -33,7 +35,7 @@ export default function newTaskPageDomLoader(project, CreateTask){
     const dueDateLabel = document.createElement('label');
     dueDateLabel.textContent = 'Due Date';
     const dueDate = document.createElement('input');
-    attributeSetter(dueDate, {'type': 'date', 'name': 'dueDate', 'id': 'dueDate'});
+    attributeSetter(dueDate, {'type': 'date', 'name': 'dueDate', 'id': 'dueDate', 'value': today});
 
     const saveBtn = document.createElement('button');
     saveBtn.textContent = 'Save';
