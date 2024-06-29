@@ -5,7 +5,7 @@ import newTaskPageDomLoader from "./newTaskPageDOMLoader";
 import { taskPageLoad } from "./taskPageLoad";
 import projectDisplayDOMLoader from "./projectDisplayDOMLoader";
 import { format } from "date-fns";
-import { setTaskProprieties, remove, reloadDOM } from "./helper";
+import { setTaskProprieties, remove, reloadDOM, saveInLocalStorage } from "./helper";
 
 export default function DOMhandler() {
     navbarDomLoader(projectManager);
@@ -18,7 +18,6 @@ export default function DOMhandler() {
         for (let i = 0; i < newTaskBtnsNodelist.length; i++){
             let projectId = newTaskBtnsNodelist[i].parentNode.firstChild.id // change this, is not the parent anymore
             newTaskBtnsNodelist[i].addEventListener('click', () => {
-                console.log(projectId)
                 newTaskPageDomLoader(projectManager.projectsList[projectId], CreateTask); 
             })            
         }
@@ -62,6 +61,7 @@ const newProjectInteraction = (function() {
     saveNewProjectBtn.addEventListener('click', () => {
         projectManager.createAndSaveProject(newProjectName.value);
         dialog.close();
-        DOMhandler()
+        saveInLocalStorage();
+        DOMhandler();
     })
 })()

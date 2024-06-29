@@ -3,6 +3,7 @@ import CreateTask from "./taskManager";
 import { taskPageLoad } from "./taskPageLoad";
 import { deleteProject } from "./projectManager";
 import { format } from "date-fns";
+import { deleteProjectFromLocalStorage, saveProjects } from ".";
 
 export function attributeSetter(element, attributes) {
     for(let key in attributes){
@@ -20,6 +21,10 @@ export function clearContentPage() {
 export function reloadDOM() {
     DOMhandler()
 };
+
+export function saveInLocalStorage() {
+    saveProjects()
+}
 
 // Task Related
 export const standardTask = CreateTask('My First Task', 'Put your description here', new Date(2024, 6, 26), 1)
@@ -68,7 +73,8 @@ export function projectHelper () {
     }
 
     const removeProject = (projectId) => {
-        deleteProject(projectId)
+        deleteProject(projectId);
+        deleteProjectFromLocalStorage(projectId);
     }
 
     return {

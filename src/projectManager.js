@@ -1,6 +1,6 @@
-import { standardTask } from "./helper";
+import { saveInLocalStorage, standardTask } from "./helper";
 
-export const projectsList = [];
+export let projectsList = [];
 
 export function createNewProject(title) {
     const toDoList = [];

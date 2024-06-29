@@ -22,6 +22,19 @@ ul, li {
     padding: 15px;
 }
 
+#navbar > :first-child > form {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content min-content;
+}
+
+#navbar > :first-child > form > input {
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 1rem;
+    width: 15ch;
+}
+
 #navbar li,
 #navbar ul {
     list-style: none;

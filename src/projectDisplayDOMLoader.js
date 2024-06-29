@@ -1,4 +1,4 @@
-import { attributeSetter, clearContentPage, loadTaskHandler, remove, setTaskProprieties, projectHelper, reloadDOM } from "./helper";
+import { attributeSetter, clearContentPage, loadTaskHandler, remove, setTaskProprieties, projectHelper, reloadDOM, saveInLocalStorage } from "./helper";
 
 import { format } from "date-fns";
 
@@ -18,6 +18,7 @@ export default function projectDisplayDOMLoader(project, taskList, projectId) {
     changeNameBtn.textContent = 'Change Project Name';
     changeNameBtn.addEventListener('click', () => {
         projectHelper().changeProjectTitle(project, titleInput.value)
+        saveInLocalStorage();
         reloadDOM()
     })
 
@@ -27,6 +28,7 @@ export default function projectDisplayDOMLoader(project, taskList, projectId) {
     deleteProjectBtn.addEventListener('click', () => {
         projectHelper().removeProject(projectId);
         reloadDOM()
+        clearContentPage()
     })
 
     const taskUl = document.createElement('ul');

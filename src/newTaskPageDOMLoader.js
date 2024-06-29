@@ -1,4 +1,4 @@
-import { reloadDOM } from "./helper";
+import { reloadDOM, saveInLocalStorage } from "./helper";
 import { attributeSetter, clearContentPage } from "./helper";
 import { format } from "date-fns";
 
@@ -45,6 +45,7 @@ export default function newTaskPageDomLoader(project, CreateTask){
         currentProject.addTask(newTask);
         clearAllInputs();
         for (let i = 0; i < currentProject.getList().length; i++) {
+            saveInLocalStorage();
             return reloadDOM();  
         }
         // direct to the page of the task

@@ -1,4 +1,4 @@
-import { attributeSetter, clearContentPage, reloadDOM } from "./helper";
+import { attributeSetter, clearContentPage, reloadDOM, saveInLocalStorage } from "./helper";
 
 export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDateInput,  remove ,setTaskProprieties) {
     const contentDiv = document.querySelector('#content');
@@ -33,6 +33,7 @@ export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDat
         setTaskProprieties.setTaskDescription(description.value);
         setTaskProprieties.setTaskPriority(priority.value);
         setTaskProprieties.setTaskDueDate(dueDate.value);
+        saveInLocalStorage();
         reloadDOM();
         clearContentPage()
     })
@@ -43,6 +44,7 @@ export function taskPageLoad(titleInput, descriptionInput, priorityInput, dueDat
     deleteBtn.textContent = 'Delete';
     deleteBtn.addEventListener('click', () => {
         remove.deleteTask()
+        saveInLocalStorage()
         reloadDOM();
         clearContentPage();
     })
